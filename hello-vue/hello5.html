@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<div id="app">
+    <h1>刘少泽</h1>
+    <introduce title="早上好"></introduce>
+    <!--使用定义好的全局组件-->
+    <counter></counter>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    //定义全局组件
+    Vue.component("introduce",{
+        template:'<h1>{{title}}</h1>',
+        props:['title']//title 对应上一行title，表示一个属性，用来接受父组件传递的数据
+    });
+
+    //创建<div id="app">的vue对象
+    var  app = new Vue({
+        el:"#app",
+    });
+</script>
+
+<script type="text/javascript">
+    // 定义全局组件，两个参数：1，组件名称。2，组件参数
+    Vue.component("counter",{
+        template:'<button v-on:click="count++">周淑怡点了你 {{ count }} 次.</button>',
+        data(){
+            return {
+                count:0
+            }
+        }
+    })
+    var app = new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>

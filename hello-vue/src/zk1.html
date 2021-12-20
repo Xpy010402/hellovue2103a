@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span><router-link to="/login">登录</router-link></span>
+    <span><router-link to="/list">列表</router-link></span>
+    <hr>
+    <div>
+        <router-view></router-view>
+    </div>
+</div>
+</body>
+<script src=".././node_modules/vue/dist/vue.js"></script>
+<script src=".././node_modules/vue-router/dist/vue-router.js"></script>
+<script src="user/login.js"></script>
+<script src="user/list.js"></script>
+<script type="text/javascript">
+    //    编写路由
+    const router = new VueRouter({
+        routes:[
+            {
+                path:"/login",  //登录的路由的  url
+                component: loginForm  // 组件名称
+            },
+            {
+                path:"/list",
+                component: ListForm
+            }
+        ]
+    });
+
+    var app = new Vue({
+        el:"#app",
+        components: {//引入子组件到 vue中
+            loginForm,
+            ListForm,
+        },
+        router,  //添加路由组件
+    });
+
+
+</script>
+</html>

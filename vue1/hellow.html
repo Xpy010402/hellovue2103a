@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        img{
+            height: 50px;
+            width: 50px;
+        }
+        h1{
+
+            background-color: aqua;
+            color: red;
+        }
+        #id1{
+            background-color: crimson;
+            color: black;
+        }
+        #div1{
+            background-color: aquamarine;
+            color: red;
+        }
+        #div2{
+            background-color: aquamarine;
+            color: cornflowerblue;
+        }
+        h3{
+            background-color: cyan;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<center>
+
+<div id="app"><!--mv   vm-->
+    <input type="text" v-model="name"/>
+    <input type="text" v-model="num">
+    <button v-on:click="num++">点我</button>
+    <button v-on:click="add">加</button>
+    <button v-on:click="jian">减</button>
+    <h1>{{name}} ,非常帅！，{{num}}岁</h1><br/>
+<!--    v-text:<span v-text="hello"></span><br/>-->
+<!--    v-html:<span v-html="hello"></span><br/>-->
+    <input type="checkbox" v-model="language" value="一号女嘉宾"><img src="img/1.jpg">&nbsp;&nbsp;
+    <input type="checkbox" v-model="language" value="二号女嘉宾"><img src="img/2jpg.jpg">&nbsp;&nbsp;
+    <input type="checkbox" v-model="language" value="三号女嘉宾"><img src="img/3.jpg">&nbsp;&nbsp;
+    <input type="checkbox" v-model="language" value="四号女嘉宾"><img src="img/4.jpg">&nbsp;&nbsp;
+    <input type="checkbox" v-model="language" value="五号女嘉宾"><img src="img/5.jpg">&nbsp;&nbsp;
+    <input type="checkbox" v-model="language" value="六号女嘉宾"><img src="img/6.jpg"><br/>
+
+    {{name}}:选择了:{{language.join(' , ')}}
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <h1 id="id1">恭喜{{name}}与{{language.join(' , ')}}喜结良缘</h1>
+    <h3>距离{{name}}与{{language.join(' , ')}}还剩</h3>
+    <div id="div1">倒计时</div>秒
+    <br/>
+    <br/>
+    <br/>
+    <div id="div2"></div>
+
+</div>
+
+
+
+<!--<div id="app2">-->
+<!--    <h1>{{nam}} ,非常帅！像个{{nm}}</h1>-->
+<!--</div>-->
+</center>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script><!--引入vue.js-->
+<script>
+    var app = new Vue({
+        el:"#app", // el即element，该vue实例要渲染的页面元素  getElementById
+        data:{// 渲染页面需要的数据
+            name:"刘少泽",
+            num:24,
+            hello:"<h1>1111111111</h1>",
+            language:[]   /*记录选中的语言的值*/
+        },
+        methods:{
+            add:function () {
+                this.num++;
+            },
+            jian:function () {
+                this.num--;
+            }
+
+        },
+        // created:function () {
+        //     this.num=100
+        // },
+        mounted:function () {
+            this.num=24;
+            console.log(this);//打印日志
+        }
+    });
+    var app = new Vue({
+        el: "#app2", // el即element，该vue实例要渲染的页面元素  getElementById
+        data: {// 渲染页面需要的数据
+            nam: "刘少泽",
+            nm: 250,
+            hello: "<h1>1111111111</h1>",
+            language: []   /*记录选中的语言的值*/
+        },
+    });
+</script>
+<script language="JavaScript">
+    //得到显示数字的标签对象div
+    var div1 = document.getElementById("div1");
+    //计算函数
+    var i = 216000;
+    function timer(){
+        if(i>=0){
+            //					document.write(i);
+            //                  把数字显示在
+            div1.innerHTML=i;
+            i--;
+        }else{
+            div1.innerHTML="SB";
+            clearInterval(id);
+        }
+    }
+    var id= setInterval("timer()",1000);
+</script>
+<script>
+    function load_time(){
+        var date = new Date();
+        var y = date.getFullYear();//年
+        var M = date.getMonth();//月
+        var d = date.getDate();//天
+        var h = date.getHours();//小时
+        var m = date.getMinutes();//分钟
+        var s = date.getSeconds();//秒
+        var str = y+"-"+(M+1)+"-"+d+""+h+":"+m+":"+s;
+        document.getElementById("div2").innerHTML="当前时间为"+str;
+        setTimeout(load_time,1000);
+    }
+    setTimeout(load_time,1000);
+</script>
+
+</html>
