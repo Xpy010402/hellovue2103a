@@ -1,0 +1,272 @@
+Index: hello-vue/hello4.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n    <form action=\"hello2.html\">\r\n    <div id=\"app\"><!--mv   vm-->\r\n        <input type=\"text\" v-model=\"name\" />\r\n        <input type=\"text\" v-model=\"num\">\r\n        <button v-on:click=\"num++\">点我</button>\r\n<!--        <button v-on:contextmenu.prevent=\"num++\">点我</button>-->\r\n<!--        <button v-on:contextmenu=\"num++\">点我</button>-->\r\n        <button @click=\"num++\">点我</button>\r\n        <button v-on:click=\"add\">加</button>\r\n        <button v-on:click=\"jian\">减</button>\r\n        <h1>{{name}} ,非常帅！，{{num}}岁</h1><br/>\r\n        v-text:<span v-text=\"hello\"></span><br/>\r\n        v-html:<span v-html=\"hello\"></span><br/>\r\n        <input type=\"checkbox\" v-model=\"language\" value=\"java\" >java<br/>\r\n        <input type=\"checkbox\" v-model=\"language\" value=\"javascript\">javascript<br/>\r\n        <input type=\"checkbox\" v-model=\"language\" value=\"c++\">c++<br/>\r\n        你选择了:{{language.join(',')}}<br/>\r\n<!--        <input v-on:keyup.13=\"submit\"/>&lt;!&ndash; 只有在 `keyCode` 是 13 时调用 `vm.submit() 提交表单` &ndash;&gt;-->\r\n        <input v-on:keyup.enter=\"submit\"/><br/><!-- enter健的值是13，可以用enter代替13 -->\r\n        <table border=\"1\" cellspacing=\"0\" cellpadding=\"0\">\r\n            <tr><th>序号</th><th>名字</th><th>性别</th><th>年龄</th></tr>\r\n\r\n<!--            <tr v-for=\"user in users\">-->   <!--不带序号-->\r\n            <tr v-for=\"(user,index) in users\" v-if=\"user.gender=='女'\">\r\n<!--                <td>{{index+1}}</td>-->\r\n                <td>{{index+1>9?index+1:'0'+(index+1)}}</td>\r\n                <td>{{ user.name }}</td>\r\n                <td>{{ user.gender }}</td>\r\n                <td>{{ user.age }}</td>\r\n\r\n            </tr>\r\n        </table>\r\n<!--   遍历对象     -->\r\n        <ul>\r\n            <li v-for=\"(value,key,index) in user\" >\r\n                {{index+1}}.{{key+'----'+value}}\r\n            </li>\r\n        </ul>\r\n    </div>\r\n\r\n\r\n    <div id=\"app2\">\r\n        <h1>{{name}} ,非常帅2222222！，{{num}}岁</h1>\r\n    </div>\r\n    </form>\r\n</body>\r\n<script src=\"node_modules/vue/dist/vue.js\"></script><!--引入vue.js-->\r\n<script>\r\n    var app = new Vue({\r\n        el:\"#app\", // el即element，该vue实例要渲染的页面元素  getElementById\r\n        data:{// 渲染页面需要的数据\r\n            name:\"靖哥哥\",\r\n            num:20,\r\n            hello:\"<h1>1111111111</h1>\",\r\n            language:[],   /*记录选中的语言的值*/\r\n            users:[\r\n                {name:'柳岩', gender:'女', age: 21},\r\n                {name:'峰哥', gender:'男', age: 18},\r\n                {name:'范冰冰', gender:'女', age: 24},\r\n                {name:'刘亦菲', gender:'女', age: 18},\r\n                {name:'古力娜扎', gender:'女', age: 25},\r\n                {name:'柳岩', gender:'女', age: 21},\r\n                {name:'史俊飞', gender:'男', age: 18},\r\n                {name:'吴嘉琪', gender:'女', age: 24},\r\n                {name:'刘少泽', gender:'男', age: 18},\r\n            ],\r\n            user:\r\n                {name:'柳岩', gender:'女', age: 21},\r\n        },\r\n        methods:{\r\n            add:function () {\r\n                this.num++;\r\n            },\r\n            jian:function () {\r\n                this.num--;\r\n            }\r\n\r\n        },\r\n        // created:function () {\r\n        //     this.num=100\r\n        // },\r\n        mounted:function () {\r\n            this.num=200;\r\n            console.log(this);//打印日志\r\n        }\r\n    });\r\n</script>\r\n\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hello-vue/hello4.html b/hello-vue/hello4.html
+--- a/hello-vue/hello4.html	(revision c3124bfefa2deeba096a759b8db6964a3e3c9b95)
++++ b/hello-vue/hello4.html	(date 1640070643009)
+@@ -70,6 +70,7 @@
+                 {name:'史俊飞', gender:'男', age: 18},
+                 {name:'吴嘉琪', gender:'女', age: 24},
+                 {name:'刘少泽', gender:'男', age: 18},
++                {name:'奚鹏宇', gender:'男', age: 21},
+             ],
+             user:
+                 {name:'柳岩', gender:'女', age: 21},
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+new file mode 100644
+--- /dev/null	(date 1640068455711)
++++ b/.idea/runConfigurations.xml	(date 1640068455711)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"JavaScriptSettings\">\r\n    <option name=\"languageLevel\" value=\"ES6\" />\r\n  </component>\r\n  <component name=\"ProjectInspectionProfilesVisibleTreeState\">\r\n    <entry key=\"Project Default\">\r\n      <profile-state>\r\n        <expanded-state>\r\n          <State>\r\n            <id />\r\n          </State>\r\n        </expanded-state>\r\n        <selected-state>\r\n          <State>\r\n            <id>Android</id>\r\n          </State>\r\n        </selected-state>\r\n      </profile-state>\r\n    </entry>\r\n  </component>\r\n  <component name=\"ProjectRootManager\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision c3124bfefa2deeba096a759b8db6964a3e3c9b95)
++++ b/.idea/misc.xml	(date 1640069323352)
+@@ -19,7 +19,7 @@
+       </profile-state>
+     </entry>
+   </component>
+-  <component name="ProjectRootManager">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: hello-vue/hello vue.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<div style=\"background-color: black\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>天域非诚勿扰</title>\r\n\r\n<!--    <audio src=\"sound/fcwr.mp3\" autoplay=\"autoplay\" preload=\"auto\" ></audio>-->\r\n    <embed src=\"sound/ratherBe.mp3\" width=\"1px\" height=\"1px\" loop=\"true\" autostart=\"hiddentrue\" >\r\n\r\n    <meta charset=\"UTF-8\">\r\n</head>\r\n<body>\r\n\r\n<!--<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=298 height=52  src=\"sound/fcwr.mp3\" hidden=\"true\"></iframe>-->\r\n<center style=\"background-color: black\">\r\n    <p style=\"color: red; font-size: 150px\">天域非诚勿扰</p>\r\n<div id=\"app\" style=\"color: aqua\" >\r\n\r\n    <input type=\"text\" v-model=\"num\">\r\n    <button v-on:click=\"num++\" style=\"color: red\">亮灯</button>\r\n    <button v-on:click=\"num--\" style=\"color: red\">灭灯</button>\r\n        <h1 style=\"color: deepskyblue\">\r\n            <span style=\"color: deeppink\">{{name}}</span>，一米九!!!!! 已有 <span style=\"color: red\">{{num}}</span>位女嘉宾为她留灯!赠送马尔代夫7日游！！\r\n\r\n        </h1>\r\n    <input type=\"checkbox\" v-model=\"language\" value=\"刘少泽\">一号男嘉宾：男神刘少泽<br/>\r\n    <input type=\"checkbox\" v-model=\"language\" value=\"周淑怡\">一号女嘉宾：女神周淑怡<br/>\r\n<!--    <input type=\"checkbox\" v-model=\"language\" value=\"史俊飞\">三号男嘉宾：史俊飞<br/>-->\r\n    你选择了:{{language.join('♥')}}\r\n</div>dwdddddddddd\r\n    <div>\r\n        <img src=\"img/lsz.jpg\" width=\"300px\" height=\"300px\">\r\n        <img src=\"img/aixin.png\" width=\"300px\"  height=\"300px\">\r\n        <img src=\"img/zsy.png\" width=\"300px\" height=\"300px\">\r\n    </div>\r\n<script src=\"node_modules/vue/dist/vue.js\"></script>\r\n<script>\r\n    var app = new Vue({\r\n        el:\"#app\",\r\n        data:{\r\n            name:\"刘少泽嘉宾\",\r\n            num:99,\r\n            language:[],   /*记录选中的语言的值*/\r\n            data:{\r\n                show:true\r\n            },\r\n        },\r\n        methods:{\r\n            add:function(){\r\n                // this代表的当前vue实例\r\n                this.num--;\r\n            }\r\n        }\r\n\r\n    })\r\n\r\n</script>\r\n\r\n</center>\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hello-vue/hello vue.html b/hello-vue/hello vue.html
+--- a/hello-vue/hello vue.html	(revision c3124bfefa2deeba096a759b8db6964a3e3c9b95)
++++ b/hello-vue/hello vue.html	(date 1640069949820)
+@@ -54,9 +54,7 @@
+         }
+ 
+     })
+-
+ </script>
+-
+ </center>
+ </div>
+ </body>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1640070841354)
++++ b/.idea/workspace.xml	(date 1640070841354)
+@@ -0,0 +1,182 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="b62ac179-3014-4ac6-8160-c482a47669bd" name="Default Changelist" comment="提交1">
++      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/hello-vue/hello vue.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello-vue/hello vue.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/hello-vue/hello4.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello-vue/hello4.html" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="html666" />
++      </map>
++    </option>
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="IdeDocumentHistory">
++    <option name="CHANGED_PATHS">
++      <list>
++        <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectFrameBounds" extendedState="6">
++    <option name="x" value="312" />
++    <option name="y" value="375" />
++    <option name="width" value="1974" />
++    <option name="height" value="951" />
++  </component>
++  <component name="ProjectId" id="22aGkaOazNm5vHLDdCSxOKbcfW0" />
++  <component name="ProjectView">
++    <navigator proportions="" version="1">
++      <foldersAlwaysOnTop value="true" />
++    </navigator>
++    <panes>
++      <pane id="PackagesPane" />
++      <pane id="ProjectPane">
++        <subPane>
++          <expand>
++            <path>
++              <item name="hellovue2103a" type="b2602c69:ProjectViewProjectNode" />
++              <item name="hello-vue" type="462c0819:PsiDirectoryNode" />
++            </path>
++          </expand>
++          <select />
++        </subPane>
++      </pane>
++      <pane id="Scope" />
++    </panes>
++  </component>
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">
++    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
++    <property name="WebServerToolWindowFactoryState" value="false" />
++    <property name="aspect.path.notification.shown" value="true" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="node.js.detected.package.eslint" value="true" />
++    <property name="node.js.detected.package.tslint" value="true" />
++    <property name="node.js.selected.package.eslint" value="(autodetect)" />
++    <property name="node.js.selected.package.tslint" value="(autodetect)" />
++    <property name="project.structure.last.edited" value="Project" />
++    <property name="project.structure.proportion" value="0.15" />
++    <property name="project.structure.side.proportion" value="0.0" />
++    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
++    <property name="vue.rearranger.settings.migration" value="true" />
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="SvnConfiguration">
++    <configuration />
++  </component>
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="b62ac179-3014-4ac6-8160-c482a47669bd" name="Default Changelist" comment="" />
++      <created>1640048998392</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1640048998392</updated>
++      <workItem from="1640048999507" duration="87000" />
++      <workItem from="1640067491217" duration="368000" />
++      <workItem from="1640068429141" duration="635000" />
++      <workItem from="1640069310341" duration="584000" />
++      <workItem from="1640069928637" duration="907000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TimeTrackingManager">
++    <option name="totallyTimeSpent" value="455000" />
++  </component>
++  <component name="ToolWindowManager">
++    <frame x="-7" y="-7" width="1721" height="1041" extended-state="6" />
++    <editor active="true" />
++    <layout>
++      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25317222" />
++      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
++      <window_info id="npm" order="2" side_tool="true" />
++      <window_info id="Image Layers" order="3" />
++      <window_info id="Designer" order="4" />
++      <window_info id="UI Designer" order="5" />
++      <window_info id="Capture Tool" order="6" />
++      <window_info id="Favorites" order="7" side_tool="true" />
++      <window_info anchor="bottom" id="Message" order="0" />
++      <window_info anchor="bottom" id="Find" order="1" />
++      <window_info anchor="bottom" id="Run" order="2" />
++      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
++      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
++      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
++      <window_info anchor="bottom" id="TODO" order="6" />
++      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
++      <window_info anchor="bottom" id="Version Control" order="8" />
++      <window_info anchor="bottom" id="Database Changes" order="9" />
++      <window_info anchor="bottom" id="Terminal" order="10" />
++      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
++      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
++      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
++      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
++      <window_info anchor="right" id="Palette" order="3" />
++      <window_info anchor="right" id="Theme Preview" order="4" />
++      <window_info anchor="right" id="Maven" order="5" />
++      <window_info anchor="right" id="Capture Analysis" order="6" />
++      <window_info anchor="right" id="Palette&#9;" order="7" />
++      <window_info anchor="right" id="Database" order="8" />
++    </layout>
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="提交1" />
++    <option name="LAST_COMMIT_MESSAGE" value="提交1" />
++  </component>
++  <component name="editorHistoryManager">
++    <entry file="file://$PROJECT_DIR$/Untitled-1.html">
++      <provider selected="true" editor-type-id="text-editor" />
++    </entry>
++    <entry file="file://$PROJECT_DIR$/hello-vue/gtx.html">
++      <provider selected="true" editor-type-id="text-editor" />
++    </entry>
++    <entry file="file://$PROJECT_DIR$/hello-vue/hello.vue">
++      <provider selected="true" editor-type-id="text-editor" />
++    </entry>
++    <entry file="file://$PROJECT_DIR$/hello-vue/hello vue.html">
++      <provider selected="true" editor-type-id="text-editor" />
++    </entry>
++    <entry file="file://$PROJECT_DIR$/hello-vue/hello3.html">
++      <provider selected="true" editor-type-id="text-editor" />
++    </entry>
++    <entry file="file://$PROJECT_DIR$/hello-vue/hello5.html">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="-73" />
++      </provider>
++    </entry>
++    <entry file="file://$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="200">
++          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
++        </state>
++      </provider>
++    </entry>
++  </component>
++</project>
+\ No newline at end of file
