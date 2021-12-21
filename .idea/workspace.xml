@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="b62ac179-3014-4ac6-8160-c482a47669bd" name="Default Changelist" comment="提交1">
       <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -11,6 +12,9 @@
       <change beforePath="$PROJECT_DIR$/hello-vue/hello vue.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello-vue/hello vue.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello-vue/hello4.html" beforeDir="false" afterPath="$PROJECT_DIR$/hello-vue/hello4.html" afterDir="false" />
     </list>
+=======
+    <list default="true" id="b62ac179-3014-4ac6-8160-c482a47669bd" name="Default Changelist" comment="提交1" />
+>>>>>>> html666
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,11 +23,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="html666" />
+=======
+        <entry key="$PROJECT_DIR$" value="master" />
+>>>>>>> html666
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -137,6 +146,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+=======
+  <component name="PropertiesComponent">
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="提交1">
+      <created>1640071809662</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1640071809662</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+>>>>>>> html666
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -153,6 +178,7 @@
     <MESSAGE value="提交1" />
     <option name="LAST_COMMIT_MESSAGE" value="提交1" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Untitled-1.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -182,4 +208,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> html666
 </project>
